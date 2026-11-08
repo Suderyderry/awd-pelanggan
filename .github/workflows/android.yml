@@ -23,9 +23,11 @@ jobs:
         run: |
           sed -i 's#<application#<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />\n    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />\n    <application#' android/app/src/main/AndroidManifest.xml
           grep -c "ACCESS_FINE_LOCATION" android/app/src/main/AndroidManifest.xml
-      - name: Pasang ikon logo AWD
+      - name: Pasang ikon aplikasi (assets/icon-*.png)
         continue-on-error: true
-        run: npx -y @capacitor/assets generate --android --iconBackgroundColor '#FFC400' --iconBackgroundColorDark '#FFC400'
+        run: |
+          npx -y @capacitor/assets generate --android
+          ls android/app/src/main/res | grep mipmap
       - name: Sinkronkan
         run: npx cap sync android
       - name: Build APK
