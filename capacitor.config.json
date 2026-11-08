@@ -1,0 +1,6 @@
+{
+  "appId": "id.arjawinangun.pelanggan",
+  "appName": "AWD Pelanggan",
+  "webDir": "www",
+  "android": { "allowMixedContent": false }
+}
